@@ -13,6 +13,7 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public GameObject GameOverText;
+    public GameUI gameUI;
 
     private bool m_Started = false;
     private int m_Points;
@@ -93,5 +94,8 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        GameManager.Instance.SubmitScore(m_Points);
+        gameUI.RefreshBestScore();
     }
 }
